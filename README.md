@@ -1,6 +1,16 @@
 # Real-Time Financial Trading System
 
-A high-performance stock trading system demonstrating **Event Sourcing** and **B-Tree Indexing** for real-time trade execution, price monitoring, risk management, and portfolio analytics.
+## 📖 Description
+
+This project is a high-performance financial trading system that simulates real-world stock market operations using advanced software engineering patterns and data structures. Built with Java 17, the system demonstrates how modern trading platforms handle thousands of transactions per second while maintaining data integrity and enabling lightning-fast queries.
+
+At its core, the system implements **Event Sourcing**, an architectural pattern where all changes to application state are stored as a sequence of immutable events. This approach provides a complete audit trail of every trade and price update, enabling compliance reporting, debugging, and the ability to replay historical data for analysis. Unlike traditional CRUD systems that overwrite data, event sourcing preserves the entire history, making it ideal for financial applications where regulatory requirements demand perfect record-keeping.
+
+The system leverages **B-Tree indexing** through Java's TreeMap data structure to achieve O(log n) search performance. Multiple indexes are maintained simultaneously—organizing trades by stock symbol, trader name, transaction amount, and timestamp. This multi-index strategy allows different services to query the same data efficiently from different perspectives. For example, the Portfolio Analytics Service can instantly retrieve all trades for a specific trader, while the Risk Management Service can quickly identify transactions exceeding certain thresholds.
+
+Four independent microservices demonstrate real-world financial operations: **Trade Execution** processes buy/sell orders, **Price Monitoring** detects market volatility and price spikes, **Risk Management** identifies suspicious trading patterns and anomalies, and **Portfolio Analytics** generates comprehensive reports showing each trader's positions and profit/loss.
+
+The architecture showcases decoupled design where services operate independently, querying the central event store without sharing mutable state. This separation enables easy scaling, testing, and maintenance—critical requirements for production financial systems. The implementation serves as an educational resource for understanding how high-frequency trading platforms achieve both performance and reliability in mission-critical environments.
 
 ## 🎯 Features
 
